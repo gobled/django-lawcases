@@ -1,0 +1,21 @@
+<div class="row-fluid">
+<div class="span9">
+	<div class="card clients">
+		<h2 class="card-heading simple">Client list <span class="pull-right"> <a title="Add a new client" data-toggle="modal" class="btn btn-primary" href="/clients/add/" data-target="#modallg"><i class="fa fa-folder"></i> New</a></a> </span></h2>
+			
+		<div class="card-body">
+			{% if clients %}
+				{% include "clients/clients_table.html" %}
+				<div class="pagination">
+					<span class="step-links"> {% if clients.has_previous %} <a href="/clients/page/{{ clients.previous_page_number }}/">previous</a> {% endif %} <span class="current"> Page {{ clients.number }} of {{ clients.paginator.num_pages }}. </span> {{paginator.page_range}}
+						{% if clients.has_next %} <a href="/clients/page/{{ clients.next_page_number }}/">next</a> {% endif %} </span>
+				</div>
+			{% endif %}
+		</div>
+		<!--fine card -->
+		<br />
+	</div>
+</div>
+{% include "clients/clients_nav.html" %}
+
+</div>

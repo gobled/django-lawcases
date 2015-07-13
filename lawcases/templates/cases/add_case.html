@@ -1,0 +1,32 @@
+<h3>{% if case_id %}Edit {% else %}Add a new{% endif %} case</h3>
+<form id="add_case" method="post" action="/cases/add/" class="form-horizontal">
+	{% csrf_token %}
+	{% if case_id %}
+		<input type="hidden" name="case_id" value="{{case_id}}"/>
+	{% endif %}
+	
+	{% for field in form %}
+	{% if not field.is_hidden %}
+	<div class="control-group" id="group_{{field.name}}">
+		<label class="control-label" for="{{field.name}}">{{field.label}}</label>
+		<div class="controls">
+			{% if field.name != 'due_date' %}
+				{{ field}}
+			{% else %}
+				<input autocomplete="off" class="imdate span2" value="{{field.value|date:'m/d/Y'}}" name="{{field.name}}" size="16" type="text" />
+			{% endif %}
+			<span class="hidden help-inline">*</span>
+		</div>
+	</div>
+	{% else %}
+	{{ field }}
+	{% endif %}
+	{% endfor %}
+	
+</form>
+
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery(".imdate").datepicker().on('changeDate', function(ev){ jQuery(this).datepicker('hide'); });
+	});
+</script>

@@ -1,0 +1,17 @@
+{% load staticfiles %}
+		<!-- /container -->
+		<script src="{% static "/static/js/bootstrap.js"%}"></script>
+		<script src="{% static "/static/js/datepicker.js"%}"></script>
+		<script src="{% static "/static/js/cases.js"%}"></script>
+		<script src="{% static "/static/js/typeahead.js"%}"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				
+				
+				jQuery('#modal, #modallg').on('hidden', function () {
+				 	 jQuery(this).removeData('modal');
+				});
+			});
+		</script>
+	</body>
+	</html>

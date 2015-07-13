@@ -1,0 +1,25 @@
+<form method="post" class="form-horizontal" action="/files/add/?next=/cases/{{case.id}}/" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+	{% if file_id %}
+		<input type"text" name="file_id" value="{{file_id}}" />
+	{% endif %}
+	
+	{% for field in form %}
+	{% if not field.is_hidden %}
+	<div class="control-group" id="group_{{field.name}}">
+		<label class="control-label" for="{{field.name}}">{{field.label}}</label>
+		<div class="controls">
+			{{ field}}
+			<span class="hidden help-inline">*</span>
+		</div>
+	</div>
+	{% else %}
+		{{ field }}
+	{% endif %}
+
+	{% endfor %}
+	{% csrf_token %}
+
+	<button  class="btn btn-primary">
+		Upload
+	</button>
+</form>

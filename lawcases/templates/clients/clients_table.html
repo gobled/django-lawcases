@@ -1,0 +1,24 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Surname</th>
+			<th>Creation Date</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for client in clients %}
+
+		<tr>
+			<td>{{client.id}} </td>
+			<td>{{client.name}} </td>
+			<td>{{client.surname}}</td>
+			<td>{{client.add_date}}</td>
+			<td><a title="{$smarty.const.VIEW_CASE_LINK_TITLE}" class="btn" href="/clients/{{client.id}}/"><i class="fa fa-eye"></i> </a><a title="{$smarty.const.EDIT_LINK_TITLE}"class="btn" href="?rt=clients/edit&amp;cli_id={$rows[i]['cli_id']}"><i class="fa fa-edit"></i> </a></td>
+		</tr>
+
+		{% endfor %}
+	</tbody>
+</table>

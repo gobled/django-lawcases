@@ -1,0 +1,67 @@
+<div class="row-fluid">
+	<div class="card span9 cases">
+		<h2 class="card-heading simple">
+			<i class="fa fa-folder-open"></i> List of cases found</h2>
+		<div class="card-body">
+			{% if cases %}
+				{% include "cases/cases_table.html" %}
+			{% else %}
+				no cases found
+			{% endif %}
+		</div>
+		<p> </p>
+	</div>
+	<div class="card span3">
+		<h2 class="card-heading simple">QUI</h2>
+		<div class="card-body">
+			TEST
+		</div>
+		<p> </p>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="card span9 clients">
+		<h2 class="card-heading simple">
+			<i class="fa fa-users"></i> List of clients found</h2>
+		<div class="card-body">
+			{% if clients %}
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Surname</th>
+						<th>Creation Date</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for client in clients %}
+
+					<tr>
+						<td>{{client.id}} </td>
+						<td>{{client.name}} </td>
+						<td>{{client.surname}}</td>
+						<td>{{client.add_date}}</td>
+						<td>
+								<a title="{$smarty.const.VIEW_CASE_LINK_TITLE}" class="btn" href="/clients/{{client.id}}/"><i class="fa fa-eye"></i> </a>
+								<a title="{$smarty.const.EDIT_LINK_TITLE}"class="btn" href="?rt=clients/edit&amp;cli_id={$rows[i]['cli_id']}"><i class="fa fa-edit"></i> </a></td>
+					</tr>
+
+					{% endfor %}
+				</tbody>
+			</table>
+			{% else %}
+				no clients found
+			{% endif %}
+		</div>
+		<p> </p>
+	</div>
+	<div class="card span3">
+		<h2 class="card-heading simple">QUI</h2>
+		<div class="card-body">
+			TEST
+		</div>
+		<p> </p>
+	</div>
+</div>

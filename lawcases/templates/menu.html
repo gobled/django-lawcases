@@ -1,0 +1,50 @@
+{% if user.is_authenticated %}
+	{% if menu %}
+	<ul class="nav navbar-nav">
+	{% for item in menu %}
+     	<li {% if c_menu and c_menu == item.name %} class="active" {% endif %} > <a href="/{{ item.name }}"><i class="fa {{item.icon}}"></i> {{item.name.title}}</a></li>
+    {% endfor %}
+    </ul>
+	{% endif %}
+	<!--
+{if $active eq $link}class="active"{/if}
+-->
+<ul class="nav navbar-nav pull-right">
+	<li>
+		<a href="#">Support</a>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-user"></i> {{user.username}} <span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li>
+				<a href="#">Preferences</a>
+			</li>
+					<li>
+				<a title="{{user.username}}" href="/logout?next=/#">Logout</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<form class="navbar-form pull-left" role="search" method="post" action="/cases/search/">
+	<div class="form-group">
+		{% csrf_token %}
+		<input type="text" class="form-control" name="q" placeholder="search case/fullname" />
+		<button type="submit" class="btn btn-primary">
+			<i class="fa fa-search"></i>
+		</button>
+	</div>
+</form>
+{% else %}
+<ul class="nav navbar-nav pull-right">
+	<li id="nav-register-btn">
+		<a href="/cases/register">Register</a>
+	</li>
+	<li id="nav-login-btn" class="">
+		<a href="/login?next=cases"><i class="icon-login"></i> Login</a>
+	</li>
+</ul>
+{% endif %}
+
+
+

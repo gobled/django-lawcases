@@ -1,0 +1,37 @@
+<table class="table table-striped">
+	<thead>
+		<th class="span2">Date</th>
+		<th class="span4">Description + Time</th>
+		<th class="span2">User</th>
+		<th class="span2"><span class="pull-right">Cost</span></th>
+		<th class="span2"><span class="pull-right">Actions</span></th>
+	</thead>
+	<tbody>
+		{% for entry in entries %}
+		<tr>
+			<td>{{entry.add_date|date:'d-m-Y h:m'}}</td>
+			<td>{{entry.description}} for {{entry.entry_time}} m</td>
+			<td>{{entry.add_user}}</td>
+			<td><span class="pull-right">&euro; {{entry.cost|floatformat:2}}</span></td>
+			<td>
+				<span class="pull-right"> 
+					<a title="Edit this entry" data-toggle="modal" class="btn" href="/entries/{{entry.id}}/" data-target="#modal"> 
+						<i class="fa fa-edit"></i>
+					</a>
+					<a title="Delete this entry" data-toggle="modal" class="btn" href="/entries/delete/{{entry.id}}/" data-target="#modal"> 
+						<i class="fa fa-ban"></i>
+					</a>
+				</span>
+			</td>
+		</tr>
+		{% endfor %}
+		{% if case %}
+		<tr>
+			<td>Totale</td>
+			<td colspan="2">Total Time spent: {{time_total}} m</td>
+			<td><span class="pull-right">&euro; {{ case_total|floatformat:2}}</span></td>
+			<td> </td>
+		</tr>
+		{% endif %}
+	</tbody>
+</table>

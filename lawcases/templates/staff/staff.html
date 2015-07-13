@@ -1,0 +1,58 @@
+<div class="row-fluid">
+<div class="span9">
+	<div class="card">
+		<h2 class="card-heading simple">Office Staff</h2>
+		<div class="card-body">
+			{% if users %}
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Fullname</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Last Login</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+
+					<tr>
+						<td>{{user.last_name}} {{user.first_name}} </td>
+						<td>{{user.username}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.last_login}} </td>
+						<td>
+							<a class="btn" href="/cases/add/"><i class="fa fa-eye"></i> </a>
+							<a class="btn" href="/staff/{{user.id}}/"><i class="fa fa-edit"></i> </a>
+						</td>
+					</tr>
+
+					{% endfor %}
+				</tbody>
+			</table>
+			<div class="pagination">
+ 			   <span class="step-links">
+			        {% if users.has_previous %}
+			            <a href="/staff/page/{{ users.previous_page_number }}/">previous</a>
+			        {% endif %}
+			
+			        <span class="current">
+			            Page {{ users.number }} of {{ users.paginator.num_pages }}.
+			        </span>
+					{{paginator.page_range}}
+			        {% if users.has_next %}
+			            <a href="/staff/page/{{ users.next_page_number }}/">next</a>
+			        {% endif %}
+			    </span>
+			</div>
+
+			{% endif %}
+			
+
+		</div> <!--fine card -->
+		<br />
+	</div>
+</div> 
+{% include "staff/staff_nav.html" %}
+</div>

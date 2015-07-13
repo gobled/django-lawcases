@@ -1,0 +1,42 @@
+<div class="card keydates">
+	<h3 class="card-heading simple">
+		<i class="fa fa-calendar"></i> Key Dates	
+		<span class="pull-right"> 
+				<a title="Add a new date" data-toggle="modal" class="btn btn-primary" href="/keydates/add/{{case.id}}/" data-target="#modal"><i class="fa fa-plus"></i></a></a> 
+		</span>
+	</h3>
+	<div class="card-body ">
+		{% if keydates %}
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th span="2">Date</th>
+					<th span="9">Description</th>
+					<th span="1"> </th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for keydate in keydates %}
+				<tr>
+					<td>{{keydate.date|date:'d M Y'}} </td>
+					<td>
+						{% if keydate.completed %}
+							<i class="fa fa-check-square"></i>
+						{% else %}
+							<i class="fa fa-square-o"></i>
+						{% endif %}
+						{{keydate.add_user|title}} - {{keydate.description}} </td>
+					<td>
+						<a class="btn" data-toggle="modal" data-target="#modal" href="/keydates/{{keydate.id}}/"><i class="fa fa-edit"></i></a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+		No key dates entered yet
+		{% endif %}
+	</div>
+	<br />
+</div>
+

@@ -1,0 +1,101 @@
+<div class="row-fluid">
+	<div class="span8">
+		<div class="card cases">
+			<h2 class="card-heading simple"><i class="fa fa-folder-open"></i> Last Open Cases</h2>
+			<div class="card-body">
+				{% include "cases/cases_table.html" %}
+			</div>
+		</div>
+		<div class="card clients">
+			<h2 class="card-heading simple"><i class="fa fa-users"></i> Last Clients Added</h2>
+			<div class="card-body">
+				{% include "clients/clients_table.html" %}
+			</div>
+		</div>
+		<div class="card entries">
+			<h2 class="card-heading simple"><i class="fa fa-ellipsis-v"></i> Last entries</h2>
+			<div class="card-body">
+				{% include "entries/entries_table.html" %}
+			</div>
+		</div>
+	</div>
+	<div class="span4">
+			
+		<div class="card actions">
+			<h2 class="card-heading simple ">
+				<i class="fa fa-bolt"> </i> Quick Actions</h2>
+			<div class="card-body">
+				<a data-toggle="modal" class="btn btn-primary" href="/cases/add/" data-target="#modal"><i class="fa fa-folder"></i> New</a>
+				<a data-toggle="modal" class="btn btn-info" href="/entries/add/" data-target="#modal"><i class="fa fa-ellipsis-v"></i> Entry</a>
+				<a data-toggle="modal" class="btn btn-success" href="/payments/add/" data-target="#modal"><i class="fa fa-gbp"></i> Payment</a>
+				<a data-toggle="modal" class="btn btn-warning" href="/clients/add/" data-target="#modal"><i class="fa fa-user"></i> Client</a>
+				<p> </p>
+			</div>
+		</div>
+		<div class="card keydates">
+			<h2 class="card-heading simple">
+				<i class="fa fa-calendar"></i> Key Dates
+			</h2>
+			<div class="card-body">
+					{% if keydates %}
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th span="2">Date</th>
+								<th span="9">Description</th>
+								<th span="1"> </th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for keydate in keydates %}
+							<tr>
+								<td>{{keydate.date|date:'d M Y'}} </td>
+								<td>
+									{% if keydate.completed %}
+										<i class="fa fa-check-square"></i>
+									{% else %}
+										<i class="fa fa-square-o"></i>
+									{% endif %}
+									{{keydate.add_user|title}} - {{keydate.description}} </td>
+								<td>
+									<a class="btn" data-toggle="modal" data-target="#modal" href="/keydates/{{keydate.id}}/"><i class="fa fa-edit"></i></a>
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% endif %}
+			</div>
+		</div>
+		<div class="card">
+			<h2 class="card-heading simple">
+				<i class="fa fa-book"></i> Balance View</h2>
+			<div class="card-body">
+				<p>
+					<table class="table table-striped">
+				<tr>
+					<td class="span9">Total time spent</td>
+					<td class="span3"><span class="pull-right">{{time_sum.entry_time__sum}} m</span></td>
+				</tr><tr >
+					<td>Total expense</td>
+					<td><span class="pull-right">&euro; {{ case_sum.cost__sum }}</span></td>
+				</tr><tr>
+					<td>Total income</td>
+					<td><span class="pull-right">&euro; {{ pay_sum.amount__sum }}</span></td>
+				</tr><tr 
+					{% if balance > 0 %}
+						class="success"
+					{% else %}
+						class="error"
+					{% endif %}
+					>
+					<td>Balance</td>
+					<td><span class="pull-right">&euro; {{balance}}</span> </td>
+				</tr>
+			</table>
+				</p>
+			</div>
+		</div>	
+	</div>
+</div>
+

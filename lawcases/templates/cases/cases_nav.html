@@ -1,0 +1,58 @@
+<div class="span4">
+	{% if case %}
+	{% include "cases/keydates_card.html" %}
+	
+	
+	<div class="card">
+		<h3 class="card-heading simple">
+			<i class="fa fa-book"></i> Case time track</h3>
+		<div class="card-body">
+			<table class="table table-striped">
+				<tr>
+					<td class="span9">Total time spent</td>
+					<td class="span3"><span class="pull-right">{{time_total}} m</span></td>
+				</tr><tr >
+					<td>Total expense</td>
+					<td><span class="pull-right">&euro; {{ case_total }}</span></td>
+				</tr><tr>
+					<td>Total income</td>
+					<td><span class="pull-right">&euro; {{ pay_total }}</span></td>
+				</tr><tr 
+					{% if balance > 0 %}
+						class="success"
+					{% else %}
+						class="error"
+					{% endif %}
+					>
+					<td>Balance</td>
+					<td><span class="pull-right">&euro; {{balance}}</span> </td>
+				</tr>
+			</table>
+			
+		</div>
+		<br />
+	</div>
+	
+	
+	<div class="card">
+		<h3 class="card-heading simple">Did you know?</h3>
+		<div class="card-body">
+			Here you can view the case files, 
+			manage the payments for the case and 
+			add new time entries.
+		</div>
+		<br />
+	</div>
+	{% else %}
+	<div class="card">
+		<h3 class="card-heading simple">Did you know?</h3>
+		<div class="card-body">
+			Here you can view the case list, 
+			use the action buttons to add a new case or to view
+			an existing one. 
+		</div>
+		<br />
+	</div>
+	{% endif %}
+</div>
+

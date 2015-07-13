@@ -1,0 +1,20 @@
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Minimal Django File Upload Example</title>	
+	</head>
+
+	<body>
+		
+		<form method="post" action="/cases/upload/" 
+			{% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+			{{form}}
+    		{% csrf_token %}
+    		
+    		<input type="submit" />
+		</form>
+		
+	</body>
+
+</html> 

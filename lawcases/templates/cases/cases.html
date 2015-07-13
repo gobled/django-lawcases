@@ -1,0 +1,53 @@
+<div class="row-fluid">
+	<div class="span8">
+		<div class="card cases">
+			<h2 class="card-heading simple">
+				<i class="fa fa-folder-open"></i> Case list <span class="pull-right"> <a title="Add a new case" data-toggle="modal" class="btn btn-primary" href="/cases/add/" data-target="#modal"><i class="fa fa-plus"></i></a></a> </span></h2>
+			<div class="card-body">
+
+				{% if cases %}
+				{% include "cases/cases_table.html" %}
+				<div class="pagination">
+					<ul>
+
+						{% if cases.has_previous %}
+						<li>
+							<a href="/cases/page/{{ cases.previous_page_number }}/">&laquo;</a>
+						</li>
+						{% else %}
+						<li class="disabled">
+							<a href="#">&laquo;</a>
+						</li>
+						{% endif %}
+
+						{% for p in cases.paginator.page_range %}
+						<li {% if cases.number = p %}
+						class="active"
+						{% endif %}
+						>
+							<a href="/cases/page/{{p}}/">{{p}}</a>
+						</li>
+
+						{% endfor %}
+
+						{% if cases.has_next %}
+						<li>
+							<a href="/cases/page/{{ cases.next_page_number }}/">&raquo;</a>
+						</li>
+						{% else %}
+						<li class="disabled">
+							<a href="#">&raquo;</a>
+						</li>
+						{% endif %}
+					</ul>
+				</div>
+				{% endif %}
+			</div>
+			<!--fine card -->
+			<br />
+		</div>
+	</div>
+
+	{% include "cases/cases_nav.html" %}
+
+</div>

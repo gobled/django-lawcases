@@ -1,0 +1,45 @@
+<h3>
+	{% if entry_id %}
+		Modify
+	{% else %}
+		Add a new 
+	{% endif %}
+		entry
+	</h3>
+<form id="add_case" method="post" action="/entries/add/" class="form-horizontal">
+	{% if entry_id %}
+		<input type="hidden" name="entry_id" value="{{entry_id}}"/>
+	{% endif %}
+	<a onclick="return fastEntry(5,25,'Phone call');" class="btn"><i class="fa fa-phone"></i> Phone</a>
+		
+	{% csrf_token %}
+	{% for field in form %}
+	{% if not field.is_hidden %}
+	<div class="control-group" id="group_{{field.name}}">
+		<label class="control-label" for="{{field.name}}">{{field.label}}</label>
+		<div class="controls">
+			{% if field.name != 'due_date' %}
+				{{ field}}
+			{% else %}
+				<input autocomplete="off" class="imdate span3" name="{{field.name}}" size="16" type="text" />
+			{% endif %}
+			<span class="hidden help-inline">*</span>
+		</div>
+	</div>
+	{% else %}
+	{{ field }}
+	{% endif %}
+	{% endfor %}
+</form>
+
+<script type="text/javascript">
+	
+	function fastEntry(min,cost,descr) {
+		jQuery("#id_description").val(descr);
+		jQuery("#id_entry_time").val(min);
+		jQuery("#id_cost").val(cost);
+	}
+	jQuery(document).ready(function() {
+		jQuery(".imdate").datepicker();
+	});
+</script>

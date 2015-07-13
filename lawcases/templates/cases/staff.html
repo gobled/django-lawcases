@@ -1,0 +1,57 @@
+{% include "cases/staff_nav.html" %}
+<div class="span9">
+	<div class="card">
+		<h2 class="card-heading simple">Office Staff</h2>
+		<div class="card-body">
+			{% if users %}
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Due Date</th>
+						<th>Number</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+
+					<tr>
+						<td>{{user.id}} </td>
+						<td>{{user.first_name}} </td>
+						<td>{{user.last_name}} </td>
+						<td>{{user.username}}</td>
+						<td>{{user.last_login}} </td>
+						<td>
+								<a title="{$smarty.const.VIEW_CASE_LINK_TITLE}" class="btn" href="/cases/{{case.id}}/"><i class="fa fa-eye"></i> </a>
+								<a title="{$smarty.const.EDIT_LINK_TITLE}"class="btn" href="?rt=cases/edit&amp;cas_id={$rows[i]['cas_id']}"><i class="fa fa-edit"></i> </a></td>
+					</tr>
+
+					{% endfor %}
+				</tbody>
+			</table>
+			<div class="pagination">
+ 			   <span class="step-links">
+			        {% if users.has_previous %}
+			            <a href="/staff/page/{{ users.previous_page_number }}/">previous</a>
+			        {% endif %}
+			
+			        <span class="current">
+			            Page {{ users.number }} of {{ users.paginator.num_pages }}.
+			        </span>
+					{{paginator.page_range}}
+			        {% if users.has_next %}
+			            <a href="/staff/page/{{ users.next_page_number }}/">next</a>
+			        {% endif %}
+			    </span>
+			</div>
+
+			{% endif %}
+			
+
+		</div> <!--fine card -->
+		<br />
+	</div>
+</div> 

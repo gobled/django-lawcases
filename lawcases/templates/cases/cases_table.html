@@ -1,0 +1,44 @@
+{% load order_tags %}
+
+{% if sort %} Sorted by <b>{{sort|order_title}} {% endif %}</b>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			{% autoescape off %}
+			<th> 
+				{{ sort | order:"number;fa-sort-numeric;Number" }}
+				{% if not sort %}
+				<!--default order -->
+				<i class="fa fa-sort-numeric-desc"></i>
+				{% endif %}
+			</th>
+			<th>
+				{{ sort | order:"client;fa-sort-alpha;Client"}}
+			</th>
+			<th>Matter</th>
+			<th>
+				{{ sort | order:"due_date;fa-sort;Due date"}}
+			</th>
+			<th>Added info</th>
+			<th>Actions</th>
+			{% endautoescape %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for case in cases %}
+
+		<tr>
+			<td>{{case.number}} </td>
+			<td>{{case.client}} </td>
+			<td>{{case.matter.title}} </td>
+			<td>{{case.due_date|date:'d-m-Y'}}</td>
+			<td>{{case.add_date|date:'d-m-Y'}} by {{case.add_user.last_name}}</td>
+			<td>
+				<a class="btn" title="Open this case" href="/cases/{{case.id}}/"><i class="fa fa-eye"></i> </a>
+				<a class="btn" title="Edit current case" data-toggle="modal" data-target="#modal" href="/cases/add/{{case.id}}/"><i class="fa fa-edit"> </i></a>
+			</td>
+		</tr>
+
+		{% endfor %}
+	</tbody>
+</table>
