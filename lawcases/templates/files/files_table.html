@@ -1,35 +1,38 @@
 <table class="table table-striped">
-	<thead>
-		<th class="span5">Description</th>
-		<th class="span3">Uploader</th>
-		<th class="span2">Date added</th>
-		<th class="span2"><span class="pull-right">Actions</span></th>
-	</thead>
-	<tbody>
-		{% for file in files %}
-		<tr>
-			<td>{{file.name}}</td>
-			<td>{{file.add_user}}</td>
-			<td>{{file.add_date|date:'d M Y'}}</td>
-			<td>
+    <thead>
+    <th class="span5">Description</th>
+    <th class="span3">Uploader</th>
+    <th class="span2">Date added</th>
+    <th class="span2"><span class="pull-right">Actions</span></th>
+    </thead>
+    <tbody>
+    {% for file in files %}
+    <tr>
+        <td>{{file.name}}</td>
+        <td>{{file.add_user}}</td>
+        <td>{{file.add_date|date:'d M Y'}}</td>
+        <td>
 				<span class="pull-right"> 
-					<a title="View this file" class="btn" title="download for view this file" href="/{{file.docfile.url}}">
-						<i class="fa fa-file"></i>
-					</a>
-					<a title="Edit this file" data-toggle="modal" class="btn" href="/files/delete/{{file.id}}/" data-target="#modal">
-						<i class="fa fa-edit"></i>
-					</a>
-					<a title="Delete this file" data-toggle="modal" class="btn" href="/files/delete/{{file.id}}/" data-target="#modal"> 
-						<i class="fa fa-ban"></i>
-					</a>
+					<a title="View this file" class="btn" title="download for view this file"
+                       href="/{{file.docfile.url}}">
+                        <i class="fa fa-file"></i>
+                    </a>
+					<a title="Edit this file" data-toggle="modal" class="btn" href="/files/delete/{{file.id}}/"
+                       data-target="#modal">
+                        <i class="fa fa-edit"></i>
+                    </a>
+					<a title="Delete this file" data-toggle="modal" class="btn" href="/files/delete/{{file.id}}/"
+                       data-target="#modal">
+                        <i class="fa fa-ban"></i>
+                    </a>
 				</span>
-				<!--
-				
-				
-			-->
-			</td>
-		</tr>
+            <!--
 
-		{% endfor %}
-	</tbody>
+
+        -->
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
 </table>

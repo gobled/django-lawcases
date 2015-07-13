@@ -1,31 +1,32 @@
 <h3>Add a new staff member</h3>
 <form id="add_case" method="post" action="/staff/add/" class="form-horizontal">
-	{% if payment_id %}
-		<input type="hidden" name="payment_id" value="{{payment_id}}"/>
-	{% endif %}
-	
-	{% csrf_token %}
-	{% for field in form %}
-	{% if not field.is_hidden %}
-	<div class="control-group" id="group_{{field.name}}">
-		<label class="control-label" for="{{field.name}}">{{field.label}}</label>
-		<div class="controls">
-			{% if field.name != 'due_date' %}
-				{{ field}}
-			{% else %}
-				<input autocomplete="off" class="imdate span3" name="{{field.name}}" size="16" type="text" />
-			{% endif %}
-			<span class="hidden help-inline">*</span>
-		</div>
-	</div>
-	{% else %}
-	{{ field }}
-	{% endif %}
-	{% endfor %}
+    {% if payment_id %}
+    <input type="hidden" name="payment_id" value="{{payment_id}}"/>
+    {% endif %}
+
+    {% csrf_token %}
+    {% for field in form %}
+    {% if not field.is_hidden %}
+    <div class="control-group" id="group_{{field.name}}">
+        <label class="control-label" for="{{field.name}}">{{field.label}}</label>
+
+        <div class="controls">
+            {% if field.name != 'due_date' %}
+            {{ field}}
+            {% else %}
+            <input autocomplete="off" class="imdate span3" name="{{field.name}}" size="16" type="text"/>
+            {% endif %}
+            <span class="hidden help-inline">*</span>
+        </div>
+    </div>
+    {% else %}
+    {{ field }}
+    {% endif %}
+    {% endfor %}
 </form>
 
 <script type="text/javascript">
-	jQuery(document).ready(function() {
-		jQuery(".imdate").datepicker();
-	});
+    jQuery(document).ready(function () {
+        jQuery(".imdate").datepicker();
+    });
 </script>

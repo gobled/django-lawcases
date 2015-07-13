@@ -1,112 +1,122 @@
 {% load staticfiles %}
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 <link href="{% static "/static/css/bootplus.css"%}" rel="stylesheet" />
-		<link href="{% static "/static/css/bootplus-responsive.min.css"%}" rel="stylesheet" />
-		<link href="{% static "/static/css/font-awesome.css"%}" rel="stylesheet" />
-		<link href="{% static "/static/css/template.css"%}" rel="stylesheet" />
-		<link href="{% static "/static/css/base.css"%}" rel="stylesheet" />
-		
+<link href="{% static "/static/css/bootplus-responsive.min.css"%}" rel="stylesheet" />
+<link href="{% static "/static/css/font-awesome.css"%}" rel="stylesheet" />
+<link href="{% static "/static/css/template.css"%}" rel="stylesheet" />
+<link href="{% static "/static/css/base.css"%}" rel="stylesheet" />
+
 <h3>Add a new client</h3>
 <form id="add_client" method="post" action="/clients/add/" class="form-horizontal">
-	{% if client_id %}
-		<input type="hidden" name="client_id" value="{{client_id}}"/>
-	{% endif %}
-	
-	{% csrf_token %}
-	<fieldset>
-		<legend>Client Personal Data</legend>
-		<div class="control-group">
-			<label class="control-label">Name:</label>
-			<div class="controls"> 
-				<input type="text" class="span2" placeholder="{{form.name.label}}" name="name">
-				<input type="text" class="span2" placeholder="{{form.middle.label}}" name="middle">        
-	            <input type="text" class="span3" placeholder="{{form.surname.label}}" name="surname">
-			</div>
-		</div>
-		<div class="control-group" id="group_personal">
-			<label class="control-label">Location:</label>
-			<div class="controls form-inline">
-					<input type="text" class="span3" placeholder="{{form.city.label}}" name="city">
-	            	<input type="text" class="span3" placeholder="{{form.country.label}}" name="country">
-			</div>
-		</div>
-		<div class="control-group" id="group_personal">
-			<label class="control-label"></label>
-			<div class="controls form-horizontal">
-			   	<input type="text" class="span3" placeholder="{{form.state.label}}" name="state">
-			</div>
-		</div>
-		<div class="control-group" id="group_personal">
-			<label class="control-label"> </label>
-			<div class="controls form-horizontal">
-			   	<input type="text" class="span3" placeholder="{{form.address.label}}" name="address">
-			   	<input type="text" class="span2" placeholder="{{form.unit.label}}" name="unit">
-			   	<input type="text" class="span2" placeholder="{{form.postal_code.label}}" name="postal_code">
-			</div>
-		</div>
-		<div class="control-group" id="group_personal">
-			<label class="control-label">Birth Date:</label>
-			<div class="controls form-horizontal">
-			   	<input type="text" class="span2 imdate" name="birth_date">
-			</div>
-		</div>
-	</fieldset>
-	
-	<fieldset>
-		<legend>Contact the client</legend>
-		<div class="control-group" id="group_personal">
-			<label class="control-label">Phone:</label>
-			<div class="controls">
-				<input type="text" class="span2" placeholder="{{form.phone_home.label}}" name="phone_home">
-	       	  	<input type="text" class="span2" placeholder="{{form.phone_mobile.label}}" name="phone_mobile">
-	            <input type="text" class="span2" placeholder="{{form.phone_work.label}}" name="phone_work">      	  	
-	        </div>
-		</div>
-		<div class="control-group" id="group_personal">
-			<label class="control-label">Fax:</label>
-			<div class="controls form-horizontal">
-			   	<input type="text" class="span3" placeholder="{{form.fax.label}}" name="fax">
-			</div>
-	    </div> 
-		<div class="control-group" id="group_personal">
-			<label class="control-label">Email:</label>
-			<div class="controls form-horizontal">
-			   	<input type="text" class="span3" placeholder="{{form.email.label}}" name="email">
-			   	<button id="add_mail_one" class="add_mail btn">+</button>
-			</div>
-	    </div> 
-	    <div id="mail_two" class="control-group hidden" id="group_personal">
-			<label class="control-label"> </label>
-			<div class="controls">
-			   	<input type="text" class="span3" placeholder="{{form.email.label}}" name="email_two">
-			   	<button id="add_mail_two" class="add_mail btn">+</button>
-	    	</div>
-	    </div>
-	    <div id="mail_three" class="control-group hidden" id="group_personal">
-			<label class="control-label"> </label>
-			<div class="controls">
-				<input type="text" class="span3" placeholder="{{form.email.label}}" name="email_three">
-	    	</div>
-	    </div>
-	</fieldset>	
+    {% if client_id %}
+    <input type="hidden" name="client_id" value="{{client_id}}"/>
+    {% endif %}
+
+    {% csrf_token %}
+    <fieldset>
+        <legend>Client Personal Data</legend>
+        <div class="control-group">
+            <label class="control-label">Name:</label>
+
+            <div class="controls">
+                <input type="text" class="span2" placeholder="{{form.name.label}}" name="name">
+                <input type="text" class="span2" placeholder="{{form.middle.label}}" name="middle">
+                <input type="text" class="span3" placeholder="{{form.surname.label}}" name="surname">
+            </div>
+        </div>
+        <div class="control-group" id="group_personal">
+            <label class="control-label">Location:</label>
+
+            <div class="controls form-inline">
+                <input type="text" class="span3" placeholder="{{form.city.label}}" name="city">
+                <input type="text" class="span3" placeholder="{{form.country.label}}" name="country">
+            </div>
+        </div>
+        <div class="control-group" id="group_personal">
+            <label class="control-label"></label>
+
+            <div class="controls form-horizontal">
+                <input type="text" class="span3" placeholder="{{form.state.label}}" name="state">
+            </div>
+        </div>
+        <div class="control-group" id="group_personal">
+            <label class="control-label"> </label>
+
+            <div class="controls form-horizontal">
+                <input type="text" class="span3" placeholder="{{form.address.label}}" name="address">
+                <input type="text" class="span2" placeholder="{{form.unit.label}}" name="unit">
+                <input type="text" class="span2" placeholder="{{form.postal_code.label}}" name="postal_code">
+            </div>
+        </div>
+        <div class="control-group" id="group_personal">
+            <label class="control-label">Birth Date:</label>
+
+            <div class="controls form-horizontal">
+                <input type="text" class="span2 imdate" name="birth_date">
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Contact the client</legend>
+        <div class="control-group" id="group_personal">
+            <label class="control-label">Phone:</label>
+
+            <div class="controls">
+                <input type="text" class="span2" placeholder="{{form.phone_home.label}}" name="phone_home">
+                <input type="text" class="span2" placeholder="{{form.phone_mobile.label}}" name="phone_mobile">
+                <input type="text" class="span2" placeholder="{{form.phone_work.label}}" name="phone_work">
+            </div>
+        </div>
+        <div class="control-group" id="group_personal">
+            <label class="control-label">Fax:</label>
+
+            <div class="controls form-horizontal">
+                <input type="text" class="span3" placeholder="{{form.fax.label}}" name="fax">
+            </div>
+        </div>
+        <div class="control-group" id="group_personal">
+            <label class="control-label">Email:</label>
+
+            <div class="controls form-horizontal">
+                <input type="text" class="span3" placeholder="{{form.email.label}}" name="email">
+                <button id="add_mail_one" class="add_mail btn">+</button>
+            </div>
+        </div>
+        <div id="mail_two" class="control-group hidden" id="group_personal">
+            <label class="control-label"> </label>
+
+            <div class="controls">
+                <input type="text" class="span3" placeholder="{{form.email.label}}" name="email_two">
+                <button id="add_mail_two" class="add_mail btn">+</button>
+            </div>
+        </div>
+        <div id="mail_three" class="control-group hidden" id="group_personal">
+            <label class="control-label"> </label>
+
+            <div class="controls">
+                <input type="text" class="span3" placeholder="{{form.email.label}}" name="email_three">
+            </div>
+        </div>
+    </fieldset>
 </form>
 
 <script type="text/javascript">
-	jQuery(document).ready(function() {
-		jQuery(".imdate").datepicker();
-	
-		jQuery(".add_mail").click(function(){
-			if (jQuery("#mail_two").hasClass("hidden")){
-				jQuery("#mail_two").removeClass("hidden");
-				jQuery("#mail_two").addClass("inline");
-				jQuery("#add_mail_one").addClass("hidden");
-			}
-			else{
-				jQuery("#mail_three").removeClass("hidden");
-				jQuery("#mail_three").addClass("inline");
-				jQuery("#add_mail_two").addClass("hidden");
-			}
-			return false;
-		});
-	});
+    jQuery(document).ready(function () {
+        jQuery(".imdate").datepicker();
+
+        jQuery(".add_mail").click(function () {
+            if (jQuery("#mail_two").hasClass("hidden")) {
+                jQuery("#mail_two").removeClass("hidden");
+                jQuery("#mail_two").addClass("inline");
+                jQuery("#add_mail_one").addClass("hidden");
+            }
+            else {
+                jQuery("#mail_three").removeClass("hidden");
+                jQuery("#mail_three").addClass("inline");
+                jQuery("#add_mail_two").addClass("hidden");
+            }
+            return false;
+        });
+    });
 </script>

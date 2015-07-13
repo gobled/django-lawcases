@@ -1,21 +1,24 @@
 <div class="span3">
-	{% if client %}
-	<div class="card">
-		<h3 class="card-heading text-info">Managing Clients</h3>
-		
-		<div class="card-body">
-			<a data-toggle="modal" class="btn btn-primary" href="/entries/add/{{case.id}}/" data-target="#modal"><i class="fa fa-plus-circle"></i> Entry</a>
-			<a data-toggle="modal" class="btn btn-primary" href="/payments/add/{{case.id}}/" data-target="#modal"><i class="fa fa-money"></i> Payment</a>			
-		</div>
-		<br />
-	</div>
-	{% endif %}
-	<div class="card">
-		<h3 class="card-heading simple">Did you know?</h3>
-		<div class="card-body">
-			I'm the client
-		</div>
-		<br />
-	</div>
+    {% if client %}
+    <div class="card">
+        <h3 class="card-heading text-info">Managing Clients</h3>
+
+        <div class="card-body">
+            <a data-toggle="modal" class="btn btn-primary" href="/entries/add/{{case.id}}/" data-target="#modal"><i
+                    class="fa fa-plus-circle"></i> Entry</a>
+            <a data-toggle="modal" class="btn btn-primary" href="/payments/add/{{case.id}}/" data-target="#modal"><i
+                    class="fa fa-money"></i> Payment</a>
+        </div>
+        <br/>
+    </div>
+    {% endif %}
+    <div class="card">
+        <h3 class="card-heading simple">Did you know?</h3>
+
+        <div class="card-body">
+            I'm the client
+        </div>
+        <br/>
+    </div>
 </div>
 

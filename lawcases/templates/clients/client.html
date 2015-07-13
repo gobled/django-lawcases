@@ -1,69 +1,75 @@
 <div class="row-fluid">
-	<div class="span9">
-	<div class="card">
-		<h2 class="card-heading simple">Client: {{client.surname.upper}} {{client.name.upper}}</h2>
-		<div class="card-body">
-			{% include "clients/clients_data.html" %}
-		</div>
-		<div class="card-actions">
-			<a href="#" class="btn pull-right"><i class="fa fa-phone"></i>  Call</a>
-		</div>
-	</div>
-	<div class="card">
-		<h2 class="card-heading simple">Payment Entries</h2>
-		<div class="card-body">
-			{% if payments %}
-				{% include "payments/payments_table.html" %}
-			{% else %}
-				<p>
-					No entries yet
-				</p>
-			{% endif %}
-		</div>
-	</div>
-	<div class="card">
-		<h2 class="card-heading simple">Time Entries</h2>
-		<div class="card-body">
-			{% if entries %}
-				{% include "entries/entries_table.html" %}
-			{% else %}
-				<p>No entries yet</p>
-			{% endif %}
-		</div>
-	</div>
-	
-	<div class="card">
-		<h2 class="card-heading simple">Client Files</h2>
-		<div class="card-body">
-			{% if files %}
-				{% include "files/files_table.html" %}
-			{% else %}
-			No files for this case yet
-			{% endif %}
-			<form method="post" class="form-horizontal" action="/clients/upload/?next=/clients/{{client.id}}/" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
-				{% for field in form %}
-				{% if not field.is_hidden %}
-				<div class="control-group" id="group_{{field.name}}">
-					<label class="control-label" for="{{field.name}}">{{field.label}}</label>
-					<div class="controls">
-						{{ field}}
-						<span class="hidden help-inline">*</span>
-					</div>
-				</div>
-				{% else %}
-				{{ field }}
-				{% endif %}
+    <div class="span9">
+        <div class="card">
+            <h2 class="card-heading simple">Client: {{client.surname.upper}} {{client.name.upper}}</h2>
 
-				{% endfor %}
-				{% csrf_token %}
-				
-				<button  class="btn btn-primary">
-					Upload
-				</button>
-			</form>
-		</div>
-	</div>
-</div>
-{% include "clients/clients_nav.html" %}
+            <div class="card-body">
+                {% include "clients/clients_data.html" %}
+            </div>
+            <div class="card-actions">
+                <a href="#" class="btn pull-right"><i class="fa fa-phone"></i> Call</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="card-heading simple">Payment Entries</h2>
+
+            <div class="card-body">
+                {% if payments %}
+                {% include "payments/payments_table.html" %}
+                {% else %}
+                <p>
+                    No entries yet
+                </p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="card-heading simple">Time Entries</h2>
+
+            <div class="card-body">
+                {% if entries %}
+                {% include "entries/entries_table.html" %}
+                {% else %}
+                <p>No entries yet</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-heading simple">Client Files</h2>
+
+            <div class="card-body">
+                {% if files %}
+                {% include "files/files_table.html" %}
+                {% else %}
+                No files for this case yet
+                {% endif %}
+                <form method="post" class="form-horizontal" action="/clients/upload/?next=/clients/{{client.id}}/"
+                {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+                {% for field in form %}
+                {% if not field.is_hidden %}
+                <div class="control-group" id="group_{{field.name}}">
+                    <label class="control-label" for="{{field.name}}">{{field.label}}</label>
+
+                    <div class="controls">
+                        {{ field}}
+                        <span class="hidden help-inline">*</span>
+                    </div>
+                </div>
+                {% else %}
+                {{ field }}
+                {% endif %}
+
+                {% endfor %}
+                {% csrf_token %}
+
+                <button class="btn btn-primary">
+                    Upload
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% include "clients/clients_nav.html" %}
 
 </div>

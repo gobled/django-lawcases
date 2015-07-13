@@ -1,35 +1,37 @@
 <table class="table table-striped">
-	<thead>
-		<th class="span2">Date</th>
-		<th class="span4">Description</th>
-		<th class="span3">User</th>
-		<th class="span1"><span class="pull-right">Amount</span></th>
-		<th class="span2"><span class="pull-right">Actions</span></th>
-	</thead>
-	<tbody>
-		{% for payment in payments %}
-		<tr>
-			<td>{{payment.add_date|date:'d-m-Y h:m'}}</td>
-			<td>{{payment.description}}</td>
-			<td>{{payment.add_user}}</td>
-			<td><span class="pull-right">&euro;  {{payment.amount}}</span></td>
-			<td>
+    <thead>
+    <th class="span2">Date</th>
+    <th class="span4">Description</th>
+    <th class="span3">User</th>
+    <th class="span1"><span class="pull-right">Amount</span></th>
+    <th class="span2"><span class="pull-right">Actions</span></th>
+    </thead>
+    <tbody>
+    {% for payment in payments %}
+    <tr>
+        <td>{{payment.add_date|date:'d-m-Y h:m'}}</td>
+        <td>{{payment.description}}</td>
+        <td>{{payment.add_user}}</td>
+        <td><span class="pull-right">&euro; {{payment.amount}}</span></td>
+        <td>
 				<span class="pull-right"> 
-					<a title="Edit this payment" data-toggle="modal" class="btn" href="/payments/{{payment.id}}/" data-target="#modal"> 
-						<i class="fa fa-edit"></i>
-					</a>
+					<a title="Edit this payment" data-toggle="modal" class="btn" href="/payments/{{payment.id}}/"
+                       data-target="#modal">
+                        <i class="fa fa-edit"></i>
+                    </a>
 					
-					<a title="Delete this payment" data-toggle="modal" class="btn" href="/payments/delete/{{payment.id}}/" data-target="#modal"> 
-						<i class="fa fa-ban"></i>
-					</a>
+					<a title="Delete this payment" data-toggle="modal" class="btn"
+                       href="/payments/delete/{{payment.id}}/" data-target="#modal">
+                        <i class="fa fa-ban"></i>
+                    </a>
 				</span>
-			</td>
-		</tr>
-		{% endfor %}
-		<tr>
-			<td colspan="3">Totale</td>
-			<td><span class="pull-right">&euro; {{ pay_sum.amount__sum }}</span></td>
-			<td> </td>
-		</tr>
-	</tbody>
+        </td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="3">Totale</td>
+        <td><span class="pull-right">&euro; {{ pay_sum.amount__sum }}</span></td>
+        <td></td>
+    </tr>
+    </tbody>
 </table>

@@ -1,60 +1,67 @@
 .dropdown-menu.datepicker {
-	z-index: 1151;
+    z-index: 1151;
 }
 
 .datepicker tr td:hover {
-	background-color: #D2D7D3;
+    background-color: #D2D7D3;
 }
+
 .datepicker tr td.active {
-	background-color: #C0392B;
-	color: white;
+    background-color: #C0392B;
+    color: white;
 }
 
 .card.cases .card-heading.simple {
-	color: #3498DB;
-	border-bottom: 1px solid #3498DB;
+    color: #3498DB;
+    border-bottom: 1px solid #3498DB;
 }
 
 .card.clients .card-heading.simple {
-	color: #E67E22;
-	border-bottom: 1px solid #E67E22;
+    color: #E67E22;
+    border-bottom: 1px solid #E67E22;
 }
 
 .card.entries .card-heading.simple {
-	color: #95A5A6;
-	border-bottom: 1px solid #95A5A6;
+    color: #95A5A6;
+    border-bottom: 1px solid #95A5A6;
 }
+
 .card.keydates .card-heading.simple {
-	color: #8E44AD;
-	border-bottom: 1px solid #8E44AD;
+    color: #8E44AD;
+    border-bottom: 1px solid #8E44AD;
 }
 
 .card {
-	padding-top: 5px;
+    padding-top: 5px;
 }
+
 .completed {
-	text-decoration: line-through;
+    text-decoration: line-through;
 }
+
 .table th, .table td {
-	padding: 4px;
+    padding: 4px;
 }
+
 td a.btn {
-	height: 20px;
-	min-height: 20px;
-	line-height: 20px;
+    height: 20px;
+    min-height: 20px;
+    line-height: 20px;
 }
 
 .card .card-body {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 .form-horizontal .control-group {
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }
+
 legend {
-	margin-bottom: 5px;
-	font-size: 16px;
+    margin-bottom: 5px;
+    font-size: 16px;
 }
+
 legend + .control-group {
-	margin-top: 10px;
+    margin-top: 10px;
 }

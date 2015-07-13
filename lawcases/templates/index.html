@@ -1,50 +1,50 @@
 {% include "head.html" %}
 {% include "top_main.html" %}
 <div class="container-fluid">
-	
-	
-		{% if template %}
-   		 {% with  ''|add:template|add:".html" as template %}
-		 	{% include template %}
-		 {% endwith %}
-		{% else %}
-		 template not set
-		{% endif %}
-	
-	<div class="row-fluid">
-	{% include "bottom_main.html" %}
-	</div>
+
+
+    {% if template %}
+    {% with ''|add:template|add:".html" as template %}
+    {% include template %}
+    {% endwith %}
+    {% else %}
+    template not set
+    {% endif %}
+
+    <div class="row-fluid">
+        {% include "bottom_main.html" %}
+    </div>
 </div><!--/.fluid-container-->
 {% include "foot.html" %}
 
 <!-- Modal -->
 <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	<div class="modal-body">
-		
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">
-			Cancel
-		</button>
-		<button id="test" onclick="return submitForm(this,'modal');" class="btn btn-primary">
-			Save
-		</button>
-	</div>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <div class="modal-body">
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">
+            Cancel
+        </button>
+        <button id="test" onclick="return submitForm(this,'modal');" class="btn btn-primary">
+            Save
+        </button>
+    </div>
 </div>
 
 <!-- Large Modal -->
 <div id="modallg" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	<div class="modal-body">
-		
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">
-			Cancel
-		</button>
-		<button id="test" onclick="return submitForm(this,'modallg');" class="btn btn-primary">
-			Save
-		</button>
-	</div>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <div class="modal-body">
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">
+            Cancel
+        </button>
+        <button id="test" onclick="return submitForm(this,'modallg');" class="btn btn-primary">
+            Save
+        </button>
+    </div>
 </div>

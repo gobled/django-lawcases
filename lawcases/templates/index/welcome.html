@@ -1,69 +1,76 @@
 <div class="row-fluid">
-	<div class="span8">
-		<div class="card">
-			<h2 class="card-heading simple">Zero Cases</h2>
-			<div class="card-body">
-				<p>
-					Zero Cases is build with passion to help manage your small Law Office.
-				</p>
-				<p>With simple actions you can manage the case situation, add documents 
-					to the case and have a overview of all the expenses time and payments 
-					you are recieving. 
-				</p>
-				<p>
-					
-				</p>
-			</div>
-		</div>
-	</div>
-	{% if user.is_authenticated %}
-	<div class="span4">
-		<div class="card">
-			<h2 class="card-heading simple">Feature for logged users</h2>
-			<div class="card-body">
-				this is a feature for logged users only
-			</div>
-			<p></p>
-		</div>
-	</div>
-	{% else %}
-	<div class="span4">
-		<div class="card">
-			{% include "login_form.html" %}
-		</div>
-	</div>
+    <div class="span8">
+        <div class="card">
+            <h2 class="card-heading simple">Zero Cases</h2>
 
-	{% endif %}
+            <div class="card-body">
+                <p>
+                    Zero Cases is build with passion to help manage your small Law Office.
+                </p>
+
+                <p>With simple actions you can manage the case situation, add documents
+                    to the case and have a overview of all the expenses time and payments
+                    you are recieving.
+                </p>
+
+                <p>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="span4">
+        <div class="card">
+            <h2 class="card-heading simple">Feature for logged users</h2>
+
+            <div class="card-body">
+                this is a feature for logged users only
+            </div>
+            <p></p>
+        </div>
+    </div>
+    {% else %}
+    <div class="span4">
+        <div class="card">
+            {% include "login_form.html" %}
+        </div>
+    </div>
+
+    {% endif %}
 </div>
 <div class="row-fluid">
-	<div class="span4">
-		<div class="card">
-			<h2 class="card-heading simple">Client & Case Management</h2>
-			<div class="card-body">
-				Keep information about clients and cases in one place. 
-				Manage case/client notes and phone calls.
-			</div>
-			<p></p>
-		</div>
-	</div>
-	<div class="span4">
-		<div class="card">
-			<h2 class="card-heading simple">Timekeeping/Expense Tracking</h2>
-			<div class="card-body">
-				Simplified time & expense tracking for both billable and 
-				non-billable time/expenses. Time entry records are 
-				automatically used for billing.
-			</div>
-			<p></p>
-		</div>
-	</div>
-	<div class="span4">
-		<div class="card">
-			<h2 class="card-heading simple">Case Documents Management</h2>
-			<div class="card-body">
-				Add your case documents for viewing online.
-			</div>
-			<p></p>
-		</div>
-	</div>
+    <div class="span4">
+        <div class="card">
+            <h2 class="card-heading simple">Client & Case Management</h2>
+
+            <div class="card-body">
+                Keep information about clients and cases in one place.
+                Manage case/client notes and phone calls.
+            </div>
+            <p></p>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="card">
+            <h2 class="card-heading simple">Timekeeping/Expense Tracking</h2>
+
+            <div class="card-body">
+                Simplified time & expense tracking for both billable and
+                non-billable time/expenses. Time entry records are
+                automatically used for billing.
+            </div>
+            <p></p>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="card">
+            <h2 class="card-heading simple">Case Documents Management</h2>
+
+            <div class="card-body">
+                Add your case documents for viewing online.
+            </div>
+            <p></p>
+        </div>
+    </div>
 </div>
